@@ -25,7 +25,7 @@ public class Consumidor {
 		return this.nome;		
 	}
 	
-	// Telefone
+	// Registrar Telefone 
 	
 	public String getTelefone() {
 		return this.telefone;
