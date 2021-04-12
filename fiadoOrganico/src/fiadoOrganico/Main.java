@@ -5,24 +5,32 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// Conjunto finito e ordenado
+		// Conjunto finito e ordenado	
 		
-		
-		Consumidor consumidor = new Consumidor();
-		consumidor.fiados = new int [10];						
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Informe o nome do cliente:");
-		consumidor.nome = scanner.nextLine();
+		
+		String nome = scanner.nextLine();
+		Consumidor consumidor = new Consumidor(nome);
+		
+		System.out.print("Informe o telefones do cliente:");		
+		String numtelefone = scanner.nextLine();
+		consumidor.setTelefone(numtelefone);
+		String contato = consumidor.getTelefone();
+		System.out.println("O número do telefone do cliente é:" + contato);
+		
+		
 		System.out.println("Informe o valor da compra:");
-		consumidor.fiados[0] = Integer.valueOf(scanner.nextLine());
+		int fiado = Integer.valueOf(scanner.nextLine());
+		consumidor.registrarFiado(fiado);
 
-		int total = somaWhile(consumidor.fiados);
+		int total = consumidor.getFiado();
 
 		if (total > 100) {
-			System.out.println("Cliente " + consumidor.nome + " deve: " + total + " - ganhou brinde! ");
+			System.out.println("Cliente " + consumidor.getNome() + " deve: " + total + " - ganhou brinde! ");
 
-		} else {
-			System.out.println("Cliente " + consumidor.nome + " deve: " + total);
+		}else {
+			System.out.println("Cliente " + consumidor.getNome() + " deve: " + total);
 
 		}
 
